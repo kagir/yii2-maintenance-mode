@@ -12,7 +12,7 @@
         {
             "name": "Kagir",
             "email": "kagir.dev@gmail.com"
-        },
+        }
     ],
     "minimum-stability": "dev",
     "require": {
