@@ -5,13 +5,13 @@
 ## Install
 Either run
 ```
-php composer.phar require --prefer-dist brussens/yii2-maintenance-mode "*"
+php composer.phar require --prefer-dist kagir/yii2-maintenance-mode "*"
 ```
 
 or add
 
 ```
-"brussens/yii2-maintenance-mode": "*"
+"kagir/yii2-maintenance-mode": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -19,13 +19,13 @@ to the require section of your `composer.json` file.
 Add to your config file:
 ```php
 'bootstrap' => [
-    'brussens\maintenance\Maintenance'
+    'kagir\maintenance\Maintenance'
 ],
 ...
 'container' => [
     'singletons' => [
-        'brussens\maintenance\Maintenance' => [
-            'class' => 'brussens\maintenance\Maintenance',
+        'kagir\maintenance\Maintenance' => [
+            'class' => 'kagir\maintenance\Maintenance',
 
             // Route to action
             'route' => 'maintenance/index',
@@ -33,7 +33,7 @@ Add to your config file:
             // Filters. Read Filters for more info.
             'filters' => [
                 [
-                    'class' => 'brussens\maintenance\filters\RouteFilter',
+                    'class' => 'kagir\maintenance\filters\RouteFilter',
                     'routes' => [
                         'debug/default/toolbar',
                         'debug/default/view',
@@ -48,8 +48,8 @@ Add to your config file:
             //Retry-After header
             'retryAfter' => 120 // or Wed, 21 Oct 2015 07:28:00 GMT for example
         ],
-        'brussens\maintenance\StateInterface' => [
-            'class' => 'brussens\maintenance\states\FileState',
+        'kagir\maintenance\StateInterface' => [
+            'class' => 'kagir\maintenance\states\FileState',
 
             // optional: use different filename for controlling maintenance state:
             // 'fileName' => 'myfile.ext',
@@ -67,15 +67,15 @@ You can use filters for allow excepts:
 ```php
 'container' => [
     'singletons' => [
-        'brussens\maintenance\Maintenance' => [
-            'class' => 'brussens\maintenance\Maintenance',
+        'kagir\maintenance\Maintenance' => [
+            'class' => 'kagir\maintenance\Maintenance',
             // Route to action
             'route' => 'maintenance/index',
             // Filters. Read Filters for more info.
             'filters' => [
                 //Allowed routes filter. Your can allow debug panel routes.
                 [
-                    'class' => 'brussens\maintenance\filters\RouteFilter',
+                    'class' => 'kagir\maintenance\filters\RouteFilter',
                     'routes' => [
                         'debug/default/toolbar',
                         'debug/default/view',
@@ -84,21 +84,21 @@ You can use filters for allow excepts:
                 ],
                 // Allowed roles filter
                 [
-                    'class' => 'brussens\maintenance\filters\RoleFilter',
+                    'class' => 'kagir\maintenance\filters\RoleFilter',
                     'roles' => [
                         'administrator',
                     ]
                 ],
                 // Allowed IP addresses filter
                 [
-                    'class' => 'brussens\maintenance\filters\IpFilter',
+                    'class' => 'kagir\maintenance\filters\IpFilter',
                     'ips' => [
                         '127.0.0.1',
                     ]
                 ],
                 //Allowed user names
                 [
-                    'class' => 'brussens\maintenance\filters\UserFilter',
+                    'class' => 'kagir\maintenance\filters\UserFilter',
                     'checkedAttribute' => 'username',
                     'users' => [
                         'BrusSENS',
@@ -131,7 +131,7 @@ Add to your console or common config file:
 ```php
 'container' => [
     'singletons' => [
-        'brussens\maintenance\StateInterface' => [
+        'kagir\maintenance\StateInterface' => [
             'class' => 'brussens\maintenance\states\FileState',
             // optional: use different filename for controlling maintenance state:
             // 'fileName' => 'myfile.ext',
@@ -143,7 +143,7 @@ Add to your console or common config file:
 ],
 'controllerMap' => [
       'maintenance' => [
-          'class' => 'brussens\maintenance\commands\MaintenanceController',
+          'class' => 'kagir\maintenance\commands\MaintenanceController',
       ],
 ],
 
