@@ -101,7 +101,7 @@ You can use filters for allow excepts:
                     'class' => 'kagir\maintenance\filters\UserFilter',
                     'checkedAttribute' => 'username',
                     'users' => [
-                        'BrusSENS',
+                        'Kagir',
                     ],
                 ]
             ],
@@ -132,7 +132,7 @@ Add to your console or common config file:
 'container' => [
     'singletons' => [
         'kagir\maintenance\StateInterface' => [
-            'class' => 'brussens\maintenance\states\FileState',
+            'class' => 'kagir\maintenance\states\FileState',
             // optional: use different filename for controlling maintenance state:
             // 'fileName' => 'myfile.ext',
 
